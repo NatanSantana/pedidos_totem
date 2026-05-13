@@ -3,11 +3,12 @@ package totem.pedidos.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import totem.pedidos.enums.UserEnum;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
-public class User {
+public class Pedidos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,28 +16,21 @@ public class User {
 
     @Getter
     @Setter
-    private String nome;
+    private String codigo;
 
     @Getter
     @Setter
-    @Column(unique = true)
-    private String email;
+    private Long idProduto;
 
     @Getter
     @Setter
-    @Column(unique = true)
     private String cpf;
 
     @Getter
     @Setter
-    private String senha;
+    private LocalDateTime criado_em;
 
-    @Getter
-    @Setter
-    private String telefone;
 
-    @Setter
-    @Getter
-    private UserEnum role;
+
 
 }

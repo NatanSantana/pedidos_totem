@@ -1,7 +1,7 @@
 HELP.md
 resources/
 target/
-
+resources/keys/app.key
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

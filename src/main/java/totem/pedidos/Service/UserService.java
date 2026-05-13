@@ -1,14 +1,19 @@
 package totem.pedidos.Service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import totem.pedidos.DTO.UserRequest;
 import totem.pedidos.Entity.User;
 import totem.pedidos.Exception.ExistingEmailException;
 import totem.pedidos.Mapper.UserMapper;
+import totem.pedidos.Mensageria.KafkaSender;
+import totem.pedidos.Repository.PedidosRepository;
 import totem.pedidos.Repository.UserRepository;
 import totem.pedidos.Security.SecurityConfig;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -17,6 +22,8 @@ public class UserService {
     private final UserRepository userRepository;
     private final SecurityConfig securityConfig;
     private final PasswordEncoder passwordEncoder;
+    private final KafkaSender kafkaSender;
+    private final PedidosRepository pedidosRepository;
 
     /*
         Parâmetros validados no request:
@@ -40,6 +47,8 @@ public class UserService {
         request.setSenha(passwordEncoder.encode(request.getSenha()));
         return userRepository.save(new UserMapper().requestToEntity(request));
     }
+
+
 
 
 }

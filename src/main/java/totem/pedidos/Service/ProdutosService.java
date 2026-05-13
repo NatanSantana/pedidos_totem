@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import totem.pedidos.DTO.ProdutoRequest;
 import totem.pedidos.Entity.Produtos;
 import totem.pedidos.Mapper.ProdutoMapper;
+import totem.pedidos.Mensageria.KafkaSender;
 import totem.pedidos.Repository.ProdutosRepository;
 
 import java.util.List;
@@ -17,15 +18,17 @@ public class ProdutosService {
 
     private final ProdutosRepository produtosRepository;
     private final ProdutoMapper produtoMapper;
+    private final KafkaSender kafkaSender;
 
     public Produtos registrarProduto(ProdutoRequest request) {
 
-        if (produtosRepository.existsByNomeProduto(request.nomeProduto())) {
+        if (produtosRepository.findByNomeProduto(request.nomeProduto()).isPresent() ) {
             log.error("Produto já existe");
             throw new IllegalArgumentException("Já existe um produto com esse nome");
         }
 
         Produtos produto = produtoMapper.requestToEntity(request);
+
 
         produtosRepository.save(produto);
         log.info("Produto criado: " + request);

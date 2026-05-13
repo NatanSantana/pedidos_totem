@@ -1,4 +1,4 @@
-package totem.pedidos.Service;
+package totem.pedidos.Security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

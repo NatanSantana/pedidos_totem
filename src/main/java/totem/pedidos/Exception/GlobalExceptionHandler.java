@@ -65,4 +65,15 @@ public class GlobalExceptionHandler {
 
     }
 
+    @ExceptionHandler(NullNomeProduto.class)
+    public ResponseEntity<Object> handleENomeProduto(NullNomeProduto ex) {
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(Map.of("error", "Produto Inexistente",
+                        "Message", ex.getMessage()));
+
+
+    }
+
 }
