@@ -22,7 +22,7 @@ public class ProdutosService {
 
         if (produtosRepository.findByNomeProduto(request.nomeProduto()).isPresent() ) {
             log.error("Produto já existe");
-            throw new IllegalArgumentException("Já existe um produto com esse nome");
+            throw new IllegalArgumentException("Já existe um produto com esse nome!");
         }
 
         Produtos produto = produtoMapper.requestToEntity(request);
