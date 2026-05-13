@@ -40,7 +40,7 @@ public class SecurityConfig {
         String pem = publicKeyStr
                 .replace("-----BEGIN PUBLIC KEY-----", "")
                 .replace("-----END PUBLIC KEY-----", "")
-                .replaceAll("\\s+", "");
+                .replaceAll("[\\s\\r\\n]+", ""); // <- remove \r também
         byte[] decoded = Base64.getDecoder().decode(pem);
         KeyFactory kf = KeyFactory.getInstance("RSA");
         return (RSAPublicKey) kf.generatePublic(new X509EncodedKeySpec(decoded));
@@ -50,7 +50,7 @@ public class SecurityConfig {
         String pem = privateKeyStr
                 .replace("-----BEGIN PRIVATE KEY-----", "")
                 .replace("-----END PRIVATE KEY-----", "")
-                .replaceAll("\\s+", "");
+                .replaceAll("[\\s\\r\\n]+", ""); // <- remove \r também
         byte[] decoded = Base64.getDecoder().decode(pem);
         KeyFactory kf = KeyFactory.getInstance("RSA");
         return (RSAPrivateKey) kf.generatePrivate(new PKCS8EncodedKeySpec(decoded));
