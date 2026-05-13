@@ -16,4 +16,4 @@ COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-Xmx512m","-jar","app.jar"]
+ENTRYPOINT ["sh", "-c", "java -Xmx512m -jar app.jar --server.port=${PORT:-8080}"]
