@@ -53,14 +53,14 @@ public class PedidoService {
         }
 
         for(Carrinho carrinho : produtosByCpf) {
-            Pedidos entidadePedido = new Pedidos();
-            entidadePedido.setCodigo(codigoPedido);
-            entidadePedido.setIdProduto(carrinho.getIdProduto());
-            entidadePedido.setCpf(carrinho.getCpf());
-            entidadePedido.setCriado_em(LocalDateTime.now());
+            Pedidos entidade = new Pedidos();
+            entidade.setCodigo(codigoPedido);
+            entidade.setIdProduto(carrinho.getIdProduto());
+            entidade.setCpf(carrinho.getCpf());
+            entidade.setCriado_em(LocalDateTime.now());
 
 
-            pedidosRepository.save(entidadePedido);
+            pedidosRepository.save(entidade);
         }
 
     }
