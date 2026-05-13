@@ -17,6 +17,7 @@ import totem.pedidos.Repository.PedidosRepository;
 import totem.pedidos.Repository.ProdutosRepository;
 import totem.pedidos.Repository.UserRepository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -56,6 +57,7 @@ public class PedidoService {
             entidadePedido.setCodigo(codigoPedido);
             entidadePedido.setIdProduto(carrinho.getIdProduto());
             entidadePedido.setCpf(carrinho.getCpf());
+            entidadePedido.setCriado_em(LocalDateTime.now());
 
 
             pedidosRepository.save(entidadePedido);
