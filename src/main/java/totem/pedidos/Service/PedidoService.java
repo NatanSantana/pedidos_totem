@@ -2,25 +2,15 @@ package totem.pedidos.Service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tools.jackson.databind.ObjectMapper;
-import totem.pedidos.DTO.PedidoReponse;
-import totem.pedidos.DTO.PedidoRequest;
 import totem.pedidos.Entity.Carrinho;
 import totem.pedidos.Entity.Pedidos;
-import totem.pedidos.Entity.Produtos;
-import totem.pedidos.Entity.User;
-import totem.pedidos.Exception.NullNomeProduto;
-import totem.pedidos.Mapper.PedidoMapper;
-import totem.pedidos.Mensageria.KafkaSender;
 import totem.pedidos.Repository.CarrinhoRepository;
 import totem.pedidos.Repository.PedidosRepository;
 import totem.pedidos.Repository.ProdutosRepository;
 import totem.pedidos.Repository.UserRepository;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -32,10 +22,6 @@ public class PedidoService {
     public final UserRepository userRepository;
 
     public final ProdutosRepository produtosRepository;
-
-    public final KafkaSender kafkaSender;
-
-    private final ObjectMapper objectMapper;
 
     private final CarrinhoRepository carrinhoRepository;
 

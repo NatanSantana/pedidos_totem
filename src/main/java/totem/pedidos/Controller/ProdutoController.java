@@ -8,7 +8,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import totem.pedidos.DTO.ProdutoRequest;
 import totem.pedidos.Entity.Produtos;
-import totem.pedidos.Mensageria.KafkaSender;
 import totem.pedidos.Service.ProdutosService;
 
 @RequiredArgsConstructor

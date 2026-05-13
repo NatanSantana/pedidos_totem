@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import totem.pedidos.DTO.ProdutoRequest;
 import totem.pedidos.Entity.Produtos;
 import totem.pedidos.Mapper.ProdutoMapper;
-import totem.pedidos.Mensageria.KafkaSender;
 import totem.pedidos.Repository.ProdutosRepository;
 
 import java.util.List;
@@ -18,7 +17,6 @@ public class ProdutosService {
 
     private final ProdutosRepository produtosRepository;
     private final ProdutoMapper produtoMapper;
-    private final KafkaSender kafkaSender;
 
     public Produtos registrarProduto(ProdutoRequest request) {
 

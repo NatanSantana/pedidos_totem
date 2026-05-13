@@ -1,7 +1,8 @@
 package totem.pedidos.Security;
 
 
-import org.jspecify.annotations.Nullable;
+
+import io.micrometer.common.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
