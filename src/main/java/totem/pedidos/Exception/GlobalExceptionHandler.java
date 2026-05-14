@@ -76,4 +76,13 @@ public class GlobalExceptionHandler {
 
     }
 
+    @ExceptionHandler(UserDoesntExist.class)
+    public ResponseEntity<Object> handleUserDoesntExist(UserDoesntExist ex) {
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error", "Usuário não encontrado",
+                "Message", ex.getMessage()));
+
+    }
+
+
 }

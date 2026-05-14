@@ -15,6 +15,7 @@ public class UserMapper {
         user.setNome(request.getNome());
         user.setRole(UserEnum.USER);
         user.setTelefone(request.getTelefone());
+        user.setCpf(request.getCpf());
         return user;
 
 

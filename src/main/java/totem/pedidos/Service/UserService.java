@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import totem.pedidos.DTO.UserRequest;
 import totem.pedidos.Entity.User;
 import totem.pedidos.Exception.ExistingEmailException;
+import totem.pedidos.Mapper.AdminMapper;
 import totem.pedidos.Mapper.UserMapper;
 import totem.pedidos.Repository.PedidosRepository;
 import totem.pedidos.Repository.UserRepository;
@@ -40,7 +41,7 @@ public class UserService {
 
     public User registrarAdmin(UserRequest request) {
         request.setSenha(passwordEncoder.encode(request.getSenha()));
-        return userRepository.save(new UserMapper().requestToEntity(request));
+        return userRepository.save(new AdminMapper().requestToEntity(request));
     }
 
 
