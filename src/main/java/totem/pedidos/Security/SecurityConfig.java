@@ -42,6 +42,7 @@ public class SecurityConfig {
                                 .requestMatchers("/produtos/listar").permitAll()
                                 .requestMatchers("/produtos/registrar").hasAuthority("SCOPE_ROLE_ADMIN")
                                 .requestMatchers("/user/sign").permitAll()
+                                .requestMatchers("/carrinho").authenticated()
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(

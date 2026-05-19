@@ -24,7 +24,9 @@ public class Produtos {
     @Setter
     private BigDecimal preco;
 
-
+    @Getter
+    @Setter
+    private String categoria;
 
 
 }
