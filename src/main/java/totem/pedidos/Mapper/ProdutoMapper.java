@@ -11,6 +11,7 @@ public class ProdutoMapper {
         Produtos produtos = new Produtos();
         produtos.setNomeProduto(request.nomeProduto());
         produtos.setPreco(request.preco());
+        produtos.setCategoria(request.categoria());
         return produtos;
     }
 

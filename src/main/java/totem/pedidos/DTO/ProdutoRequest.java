@@ -15,7 +15,12 @@ public record ProdutoRequest(
 
         @NotNull
         @Positive
-        BigDecimal preco
+        BigDecimal preco,
+
+        @NotNull
+        String categoria
+
+
 
 )
 
