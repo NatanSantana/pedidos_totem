@@ -43,6 +43,11 @@ public class CarrinhoService {
     }
 
     public List<Carrinho> resgatarCarrinhoByCpf(String cpf) {
+
+        if (cpf == null) {
+            throw new NullPointerException("Insira um cpf");
+        }
+
         List<Carrinho> produtos = carrinhoRepository.findAllByCpf(cpf);
         if (produtos.isEmpty()) {
             throw new NullPointerException("Não há produtos relacionados a esse CPF!");
