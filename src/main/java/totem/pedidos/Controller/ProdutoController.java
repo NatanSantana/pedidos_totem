@@ -28,6 +28,7 @@ public class ProdutoController {
 
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/listar")
     public ResponseEntity<?> listar() {
         return ResponseEntity.status(200).body(produtosService.listarProdutos());
