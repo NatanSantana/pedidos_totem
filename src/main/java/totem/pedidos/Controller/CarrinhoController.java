@@ -1,10 +1,7 @@
 package totem.pedidos.Controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import totem.pedidos.DTO.CarrinhoRequest;
 import totem.pedidos.Service.CarrinhoService;
 
@@ -20,6 +17,7 @@ public class CarrinhoController {
         this.carrinhoService = carrinhoService;
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping()
     public ResponseEntity<?> adicionarProdutosAoCarrinho(@RequestBody List<CarrinhoRequest> request) {
 
@@ -27,6 +25,12 @@ public class CarrinhoController {
 
         return ResponseEntity.status(200).body("Produto Adicionado ao carrinho");
 
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping()
+    public ResponseEntity<?> listarProdutosByCpf(@RequestParam String cpf) {
+        return ResponseEntity.ok().body(carrinhoService.resgatarCarrinhoByCpf(cpf));
     }
 
 }
