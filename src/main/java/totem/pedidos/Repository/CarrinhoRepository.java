@@ -10,15 +10,7 @@ import java.util.List;
 
 @Repository
 public interface CarrinhoRepository extends JpaRepository<Carrinho, Long> {
-
-    @Query("""
-            SELECT pr.nomeProduto, pr.preco
-            FROM Carrinho ca
-            JOIN Produtos pr ON ca.idProduto = pr.id
-            WHERE ca.cpf = :cpf
-             
-            """)
-    List<Carrinho> findAllByCpf(@Param("cpf") String cpf);
+    List<Carrinho> findAllByCpf(String cpf);
 
 
 }
