@@ -2,6 +2,7 @@ package totem.pedidos.Service;
 
 import org.springframework.stereotype.Service;
 import totem.pedidos.DTO.CarrinhoRequest;
+import totem.pedidos.Entity.Carrinho;
 import totem.pedidos.Exception.UserDoesntExist;
 import totem.pedidos.Mapper.CarrinhoMapper;
 import totem.pedidos.Repository.CarrinhoRepository;
@@ -39,6 +40,14 @@ public class CarrinhoService {
         }
 
 
+    }
+
+    public List<Carrinho> resgatarCarrinhoByCpf(String cpf) {
+        List<Carrinho> produtos = carrinhoRepository.findAllByCpf(cpf);
+        if (produtos.isEmpty()) {
+            throw new NullPointerException("Não há produtos relacionados a esse CPF!");
+        }
+        return produtos;
     }
 
 
