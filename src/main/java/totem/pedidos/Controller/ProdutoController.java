@@ -18,7 +18,7 @@ public class ProdutoController {
     private final ProdutosService produtosService;
 
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io/Toten-Restaurante/", "http://localhost:5173"})
+    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
     @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     @PostMapping("/registrar")
     public ResponseEntity<?> registrarProduto(@RequestBody @Valid ProdutoRequest request) {
@@ -30,7 +30,7 @@ public class ProdutoController {
     }
 
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io/Toten-Restaurante/", "http://localhost:5173"})
+    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
     @GetMapping("/listar")
     public ResponseEntity<?> listar() {
         return ResponseEntity.status(200).body(produtosService.listarProdutos());
