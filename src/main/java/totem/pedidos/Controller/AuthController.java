@@ -16,7 +16,7 @@ public class AuthController {
 
     private final AuthService authService;
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io/Toten-Restaurante/", "http://localhost:5173"})
+    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
     @PostMapping("/autenticar")
     public ResponseEntity<?> autenticar(Authentication authentication) {
         String token = authService.authenticate(authentication);

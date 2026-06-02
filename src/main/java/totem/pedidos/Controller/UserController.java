@@ -15,14 +15,14 @@ public class UserController {
     private final UserService userService;
 
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io/Toten-Restaurante/", "http://localhost:5173"})
+    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
     @PostMapping("/sign")
     public ResponseEntity<?> registrar(@RequestBody UserRequest request) {
         userService.registrarUser(request);
         return ResponseEntity.status(201).body("Usuário Criado");
     }
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io/Toten-Restaurante/", "http://localhost:5173"})
+    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
     @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     @PostMapping("/cadmin")
     public ResponseEntity<?> criarAdmin(@RequestBody UserRequest request) {
