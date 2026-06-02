@@ -17,7 +17,7 @@ public class CarrinhoController {
         this.carrinhoService = carrinhoService;
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = {"https://rrafaelferreira.github.io/Toten-Restaurante/", "http://localhost:5173"})
     @PostMapping()
     public ResponseEntity<?> adicionarProdutosAoCarrinho(@RequestBody List<CarrinhoRequest> request) {
 
@@ -27,7 +27,7 @@ public class CarrinhoController {
 
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = {"https://rrafaelferreira.github.io/Toten-Restaurante/", "http://localhost:5173"})
     @GetMapping()
     public ResponseEntity<?> listarProdutosByCpf(@RequestParam String cpf) {
         return ResponseEntity.ok().body(carrinhoService.resgatarCarrinhoByCpf(cpf));
