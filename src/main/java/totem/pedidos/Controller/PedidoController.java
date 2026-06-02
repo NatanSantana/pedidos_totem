@@ -17,6 +17,7 @@ public class PedidoController {
 
     private final PedidoService pedidoService;
 
+    @CrossOrigin(origins = {"https://rrafaelferreira.github.io/Toten-Restaurante/", "http://localhost:5173"})
     @PostMapping("/pedir")
     public ResponseEntity<?> realizarPedido(@RequestParam String cpf) {
         pedidoService.fazerPedido(cpf);
