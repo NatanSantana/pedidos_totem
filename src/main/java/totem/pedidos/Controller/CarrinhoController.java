@@ -1,5 +1,6 @@
 package totem.pedidos.Controller;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import totem.pedidos.DTO.CarrinhoRequest;
@@ -17,9 +18,9 @@ public class CarrinhoController {
         this.carrinhoService = carrinhoService;
     }
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
+    @CrossOrigin(origins = "*")
     @PostMapping()
-    public ResponseEntity<?> adicionarProdutosAoCarrinho(@RequestBody List<CarrinhoRequest> request) {
+    public ResponseEntity<?> adicionarProdutosAoCarrinho(@RequestBody @Valid List<CarrinhoRequest> request) {
 
         carrinhoService.adicionarAoCarrinho(request);
 
@@ -27,7 +28,7 @@ public class CarrinhoController {
 
     }
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
+    @CrossOrigin(origins = "*")
     @GetMapping()
     public ResponseEntity<?> listarProdutosByCpf(@RequestParam String cpf) {
         return ResponseEntity.ok().body(carrinhoService.resgatarCarrinhoByCpf(cpf));

@@ -1,5 +1,6 @@
 package totem.pedidos.Controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,17 +16,17 @@ public class UserController {
     private final UserService userService;
 
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
+    @CrossOrigin(origins = "*")
     @PostMapping("/sign")
-    public ResponseEntity<?> registrar(@RequestBody UserRequest request) {
+    public ResponseEntity<?> registrar(@RequestBody @Valid UserRequest request) {
         userService.registrarUser(request);
         return ResponseEntity.status(201).body("Usuário Criado");
     }
 
-    @CrossOrigin(origins = {"https://rrafaelferreira.github.io", "http://localhost:5173"})
+    @CrossOrigin(origins = "*")
     @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     @PostMapping("/cadmin")
-    public ResponseEntity<?> criarAdmin(@RequestBody UserRequest request) {
+    public ResponseEntity<?> criarAdmin(@RequestBody @Valid UserRequest request) {
         userService.registrarAdmin(request);
         return ResponseEntity.status(201).body("Usuário Criado");
     }
