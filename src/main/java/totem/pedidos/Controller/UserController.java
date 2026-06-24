@@ -18,7 +18,7 @@ public class UserController {
 
     @CrossOrigin(origins = "*")
     @PostMapping("/sign")
-    public ResponseEntity<?> registrar(@RequestBody @Valid UserRequest request) {
+    public ResponseEntity<?> registrar(@RequestBody  UserRequest request) {
         userService.registrarUser(request);
         return ResponseEntity.status(201).body("Usuário Criado");
     }
@@ -26,7 +26,7 @@ public class UserController {
     @CrossOrigin(origins = "*")
     @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     @PostMapping("/cadmin")
-    public ResponseEntity<?> criarAdmin(@RequestBody @Valid UserRequest request) {
+    public ResponseEntity<?> criarAdmin(@RequestBody  UserRequest request) {
         userService.registrarAdmin(request);
         return ResponseEntity.status(201).body("Usuário Criado");
     }

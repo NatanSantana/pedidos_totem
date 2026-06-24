@@ -20,7 +20,7 @@ public class CarrinhoController {
 
     @CrossOrigin(origins = "*")
     @PostMapping()
-    public ResponseEntity<?> adicionarProdutosAoCarrinho(@RequestBody @Valid List<CarrinhoRequest> request) {
+    public ResponseEntity<?> adicionarProdutosAoCarrinho(@RequestBody List<CarrinhoRequest> request) {
 
         carrinhoService.adicionarAoCarrinho(request);
 

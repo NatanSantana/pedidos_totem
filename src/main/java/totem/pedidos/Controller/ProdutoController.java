@@ -21,7 +21,7 @@ public class ProdutoController {
     @CrossOrigin(origins = "*")
     @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     @PostMapping("/registrar")
-    public ResponseEntity<?> registrarProduto(@RequestBody @Valid ProdutoRequest request) {
+    public ResponseEntity<?> registrarProduto(@RequestBody ProdutoRequest request) {
 
         Produtos produto = produtosService.registrarProduto(request);
 
